@@ -22,7 +22,7 @@
     .grid {
       display: grid;
       grid-template-columns: 3fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
       gap: 10px;
       flex: 1;
       padding: 10px;
@@ -32,9 +32,13 @@
       grid-column: 1 / 2;
       grid-row: 1 / 2;
     }
-    .weather {
+    .weather_current {
       grid-column: 1 / 2;
       grid-row: 2 / 3;
+    }
+    .weather_forecast {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
     }
     .todoist {
       grid-column: 2 / 3;
@@ -65,9 +69,23 @@
       <iframe src="https://free.timeanddate.com/clock/i8ozmlbi/n179/tlse/fn6/fs48/fcfff/tct/pct/ftb/bas2/bat1/bac1/bacfff/pa8/tt0/tw1/th2" frameborder="0"></iframe>
     </div>
 
-    <!-- Weather (lower left) -->
-    <div class="widget weather">
-      <a class="weatherwidget-io" href="https://forecast7.com/en/41d88n87d63/chicago/" data-label_1="CHICAGO" data-label_2="WEATHER" data-theme="dark">CHICAGO WEATHER</a>
+    <!-- Weather current (middle left) -->
+    <div class="widget weather current">
+    <a class="weatherwidget-io" href="https://forecast7.com/en/41d88n87d63/chicago/" data-label_1="CHICAGO" data-label_2="WEATHER" data-mode="Current" data-theme="dark" data-highcolor="#c46233" data-lowcolor="#4187a9" >CHICAGO WEATHER</a>
+    <script>
+      !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){js=d.createElement(s);
+          js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      }(document,'script','weatherwidget-io-js');
+    </script>
+    </div>
+
+    <!-- Weather forecast (lower left) -->
+    <div class="widget weather forecast">
+      <a class="weatherwidget-io" href="https://forecast7.com/en/41d88n87d63/chicago/" data-label_1="7-DAY" data-label_2="Forecast" data-mode="Forecast" data-theme="dark" data-highcolor="#c46233" data-lowcolor="#4187a9" >7-DAY Forecast</a>
       <script>
         !function(d,s,id){
           var js,fjs=d.getElementsByTagName(s)[0];
